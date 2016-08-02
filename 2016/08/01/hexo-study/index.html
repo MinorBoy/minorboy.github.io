@@ -15,7 +15,7 @@
 <meta property="og:description" content="deploy by git配置 _config.yml的几个坑12345678# You can use this:deploy:  type: git  repo: &amp;lt;repository url&amp;gt;  branch: [branch]  message: [message]  name: [git user]  email: [git email]
 
 失误1注意冒号后面有个空格啊！注">
-<meta property="og:updated_time" content="2016-08-01T09:28:07.047Z">
+<meta property="og:updated_time" content="2016-08-02T06:05:17.777Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo常见问题汇总">
 <meta name="twitter:description" content="deploy by git配置 _config.yml的几个坑12345678# You can use this:deploy:  type: git  repo: &amp;lt;repository url&amp;gt;  branch: [branch]  message: [message]  name: [git user]  email: [git email]
@@ -58,9 +58,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -100,14 +100,16 @@
 <li><p>失误3<br>执行命令: hexo d 报错无法识别git user name<br>提示: 本机git config 没有配置user.email and user.name<br>然后就配置全局的git如下：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global user.email <span class="string">"xxx@xx.com"</span> <span class="comment">#github绑定的邮件</span></div><div class="line">git config --global user.name <span class="string">"custom name"</span> <span class="comment">#自定义用户名就可以了</span></div></pre></td></tr></table></figure>
 </li>
-<li><p>失误4<br>执行命令: hexo d 报错没有rsa ssh key<br>那么，就先查找有没有ssh key<br><a href="https://help.github.com/articles/checking-for-existing-ssh-keys/" target="_blank" rel="external">https://help.github.com/articles/checking-for-existing-ssh-keys/</a><br>如果提示：No such file or directory,就是木有ssh key啦。<br>那就生成一份ssh key吧：<br>enter passphrase 就是给ssh key设置密码<br><a href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#generating-a-new-ssh-key" target="_blank" rel="external">https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#generating-a-new-ssh-key</a><br>生成ssh key之后，找到并打开ssh key pub 文件，复制全部内容到github设置里new ssh。<br>当然，也可以用命令行的方式提交到github。</p>
+<li><p>失误4<br>执行命令: hexo d 报错没有rsa ssh key<br>那么，就先<a href="https://help.github.com/articles/checking-for-existing-ssh-keys/" target="_blank" rel="external">查找有没有ssh key</a></p>
 </li>
 </ul>
+<p>如果提示：No such file or directory,就是木有ssh key啦。<br>那就<a href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#generating-a-new-ssh-key" target="_blank" rel="external">生成一份ssh key</a><br>enter passphrase 就是给ssh key设置密码</p>
+<p>生成ssh key之后，找到并打开ssh key pub 文件，复制全部内容到github设置里new ssh。<br>当然，也可以用命令行的方式提交到github。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/01/hexo-study/" data-id="cirbtxcyr000154qctzy15sps" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/08/01/hexo-study/" data-id="cird29ipa0001bcqceey3q72f" class="article-share-link">Share</a>
       
       
     </footer>
@@ -118,7 +120,7 @@
   
   
     <a href="/2016/08/01/myfirstpost/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Ancien</strong>
+      <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">一篇测试文章</div>
     </a>
   
@@ -136,7 +138,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Mot-clés</h3>
+    <h3 class="widget-title">Tags</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/测试/">测试</a></li></ul>
     </div>
@@ -146,7 +148,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
       <a href="/tags/测试/" style="font-size: 10px;">测试</a>
     </div>
@@ -165,7 +167,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
         
@@ -194,7 +196,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2016 MinorBoy<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
