@@ -7,13 +7,17 @@
 
     
 
-    <title>my story | my work | my life</title>
+    <title>【Hexo美化】使用raytaylorism主题 | my story | my work | my life</title>
     <meta name="author" content="MinorBoy">
+    
+    <meta name="description" content="安装raytaylorism主题12cd yourbloggit clone https://github.com/raytaylorlin/hexo-theme-raytaylorism.git themes/raytaylorism
+基础配置
+修改 _config.yml 中的theme一项的值">
     
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    
+    <meta property="og:title" content="【Hexo美化】使用raytaylorism主题"/>
     <meta property="og:site_name" content="MB Story"/>
 
     
@@ -198,27 +202,35 @@
 
 
     <main>
+        <div class="container main-container">
+    <nav class="page-nav hide-on-small-only">
+    <div class="nav-wrapper teal">
+        <span class="breadcrumb">Current page(Categories)</span>
+        
+            
+
         
 
+        
+    </div>
+</nav>
 
+<article>
+    <div class="card">
+        <div class="card-content">
+            
 
-<div id="article-list" class="container main-container">
-    
-        <article class="simple-article">
-        <div class="card">
-            <div class="card-content">
-                <div class="article-title">
-                    
-    
-        <h1 class="teal-link-context"><a href="/2016/08/02/hexo-new-theme/">【Hexo美化】使用raytaylorism主题</a></h1>
-    
-
-
-                </div>
-
-                <time class="pink-link-context" datetime="2016-08-02T11:32:21.000Z"><a href="/2016/08/02/hexo-new-theme/">2016-08-02</a></time>
-
+            <div class="article-title">
                 
+    
+        <h1>【Hexo美化】使用raytaylorism主题</h1>
+    
+
+
+            </div>
+            <time class="pink-link-context" datetime="2016-08-02T11:32:21.000Z"><a href="/2016/08/02/hexo-new-theme/">2016-08-02</a></time>
+
+            
     <div class="tags-row">
         
             <a href="/tags/raytaylorism/" class="chip pink lighten-1">raytaylorism</a>
@@ -228,118 +240,61 @@
     </div>
 
 
+            <div class="toc pink-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#安装raytaylorism主题"><span class="section table-of-contents-text">安装raytaylorism主题</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#基础配置"><span class="section table-of-contents-text">基础配置</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#DIY样式配置"><span class="section table-of-contents-text">DIY样式配置</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#数据"><span class="section table-of-contents-text">数据</span></a></li></ol></li></ol>
+</div>
 
-                
+
+            <div class="entry pink-link-context">
+                <h2 id="安装raytaylorism主题"><a href="#安装raytaylorism主题" class="headerlink" title="安装raytaylorism主题"></a>安装raytaylorism主题</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd yourblog</div><div class="line">git clone https://github.com/raytaylorlin/hexo-theme-raytaylorism.git themes/raytaylorism</div></pre></td></tr></table></figure>
+<h3 id="基础配置"><a href="#基础配置" class="headerlink" title="基础配置"></a>基础配置</h3><ol>
+<li>修改 <code>_config.yml</code> 中的<code>theme</code>一项的值为<code>raytaylorism</code></li>
+<li><p>由于本主题使用了[Data Files]数据文件和额外的layout文件，所以请复制以下文件到你的博客目录中，否则在启动server时可能会报错</p>
+<ul>
+<li><strong>复制<code>yourblog/themes/raytaylorism/_data</code>文件夹到<code>yourblog/source</code>目录下</strong></li>
+<li><strong>复制<code>yourblog/themes/raytaylorism/_md/</code>下所有文件夹（about和reading）到<code>yourblog/source</code>目录下</strong>（不包含_md目录）</li>
+</ul>
+</li>
+<li><p>在你的<code>yourblog/_config.yml</code>配置文件的<code>#pagination</code>的位置添加下面配置（禁用归档、标签、目录页面的分页功能）</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">archive_generator:</div><div class="line">  per_page: 0</div><div class="line">tag_generator:</div><div class="line">  per_page: 0</div><div class="line">category_generator:</div><div class="line">  per_page: 0</div></pre></td></tr></table></figure>
+<h3 id="DIY样式配置"><a href="#DIY样式配置" class="headerlink" title="DIY样式配置"></a>DIY样式配置</h3><ul>
+<li><strong>主题颜色配置</strong>：<br>如果对主题的配色不满意，可以自行在<code>yourblog/themes/raytaylorism/_config.yml</code>中的<code>color</code>一项进行配置。其中各部件的颜色字符串命名采用<a href="http://materializecss.com/color.html#palette" target="_blank" rel="external">Materializecss色板</a>规范。<br>注意：<code>link</code>、<code>article_title_link</code>和<code>tab</code>配置的是文字的颜色，<br><strong>因此不可以给这几项配置<code>lighten</code>和<code>darken</code>的颜色加亮加暗的后缀</strong>。</li>
+<li><strong>页面标题</strong>：<br>在<code>yourblog/_config.yml</code>中，<code>title</code>项决定了页面header中显示的标题，<code>subtitle</code>决定了浏览器的<code>&lt;title&gt;</code>标签内容。</li>
+<li><strong>favicon</strong>：<br>请将<code>yourblog/themes/raytaylorism/source/favicon.png</code>替换为你自己的图标文件，<br><strong>保持<code>favicon.png</code>命名不变</strong>。</li>
+<li><strong>多语言</strong>：<br>目前主题支持简体中文、繁体中文和英文三种语言，<br>可以将<code>yourblog/_config.yml</code>中<code>language</code>一项设置为<code>zh-CN</code>、<code>zh-TW</code>、<code>en</code>实现</li>
+</ul>
+<h3 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h3><ul>
+<li><strong>外部链接</strong>：<br>在<code>yourblog/source/_data/link.json</code>数据文件中进行配置<ul>
+<li>社交平台：对应<code>social</code>项，预设有<code>weibo</code>和<code>github</code>两种。</li>
+<li>友情链接：对应<code>extern</code>项</li>
+</ul>
+</li>
+<li><strong>首页幻灯片</strong>：<br>在<code>yourblog/source/_data/slider.json</code>数据文件中进行配置。不需要幻灯片，直接把<code>slider.json</code>删除即可。</li>
+<li><strong>关于页面</strong>：<br><code>yourblog/themes/raytaylorism/_md/about/index.md</code>文件为自我介绍的正文，markdown书写即可。在<code>yourblog/source/_data/about.json</code>数据文件中配置关于页面的其他项。<ul>
+<li><code>avatar</code>：String类型，头像图片链接</li>
+<li><code>name</code>：String类型，自己的姓名</li>
+<li><code>tag</code>: String类型，描述自己的标签，<strong>主要显示在侧滑栏的头部</strong></li>
+<li><code>desc</code>：String类型，对自己的简短描述</li>
+<li><code>skills</code>：Object类型，对象技能展示。</li>
+<li><code>projects</code>：Array类型，作品与项目展示，</li>
+<li><code>reward</code>：Array类型，打赏二维码图片列表。</li>
+</ul>
+</li>
+<li><strong>读书页面</strong>：<br>在<code>yourblog/source/_data/reading.json</code>数据文件中进行配置。读书页面有“已读”“在读”和“想读”三栏，分别对应<code>contents</code>项中的<code>readed</code>、<code>reading</code>和<code>wanted</code>字段，每个字段对应一个书籍列表，按照例子进行修改即可。</li>
+<li><strong>new标签</strong>：<br>在<code>yourblog/source/_data/hint.json</code>数据文件中进行配置。<code>selector</code>项是一个数组，里面可以包含若干个CSS选择器用于选择要添加new标签的DOM元素。</li>
+</ul>
+
             </div>
-
-            
         </div>
-</article>
-
-    
-        <article class="simple-article">
-        <div class="card">
-            <div class="card-content">
-                <div class="article-title">
-                    
-    
-        <h1 class="teal-link-context"><a href="/2016/08/01/hexo-study/">Hexo常见的坑汇总</a></h1>
-    
-
-
-                </div>
-
-                <time class="pink-link-context" datetime="2016-08-01T08:38:06.498Z"><a href="/2016/08/01/hexo-study/">2016-08-01</a></time>
-
-                
-    <div class="tags-row">
-        
-            <a href="/tags/Hexo/" class="chip pink lighten-1">Hexo</a>
-        
-            <a href="/tags/踩坑/" class="chip pink lighten-1">踩坑</a>
-        
     </div>
-
-
-
-                
-            </div>
-
-            
-        </div>
 </article>
 
-    
-        <article class="simple-article">
-        <div class="card">
-            <div class="card-content">
-                <div class="article-title">
-                    
-    
-        <h1 class="teal-link-context"><a href="/2016/08/01/myfirstpost/">一篇测试文章</a></h1>
-    
-
-
-                </div>
-
-                <time class="pink-link-context" datetime="2016-08-01T07:03:11.228Z"><a href="/2016/08/01/myfirstpost/">2016-08-01</a></time>
-
-                
-    <div class="tags-row">
-        
-            <a href="/tags/测试/" class="chip pink lighten-1">测试</a>
-        
-    </div>
 
 
 
-                
-            </div>
 
-            
-        </div>
-</article>
-
-    
-        <article class="simple-article">
-        <div class="card">
-            <div class="card-content">
-                <div class="article-title">
-                    
-    
-        <h1 class="teal-link-context"><a href="/2016/08/01/hello-world/">Hello World</a></h1>
-    
-
-
-                </div>
-
-                <time class="pink-link-context" datetime="2016-08-01T06:34:51.135Z"><a href="/2016/08/01/hello-world/">2016-08-01</a></time>
-
-                
-
-
-                
-            </div>
-
-            
-        </div>
-</article>
-
-    
-
-    <ul class="pagination center-align">
-    <li class="disabled">
-        <a href="/"><i class="fa fa-angle-left"></i></a>
-    </li>
-    
-    
-        <li class="active pink"><a href="/">1</a></li>
-    
-    
-    <li class="disabled">
-        <a href="/"><i class="fa fa-angle-right"></i></a>
-    </li>
- </ul>
 
 </div>
 
