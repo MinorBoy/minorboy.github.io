@@ -11,7 +11,7 @@
     <meta name="author" content="MinorBoy">
     
     <meta name="description" content="趁着空隙时间，添加一个访问计数功能YY一下哈~采用不蒜子访问计数脚本为什么用不蒜子？因为免费！因为免费！因为免费！
-不蒜子">
+配置js打开themes/你的主题/layout/_partial/footer.ejs添加以下脚本即可12&amp;lt;script async src=&quot;https://dn-lbsta">
     
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -244,13 +244,18 @@
 
 
             <div class="toc pink-link-context hide-on-med-and-down">
-    
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#配置js"><span class="section table-of-contents-text">配置js</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#统计总访问量PV"><span class="section table-of-contents-text">统计总访问量PV</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#统计总访问人数UV"><span class="section table-of-contents-text">统计总访问人数UV</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#统计单个页面访问量PV"><span class="section table-of-contents-text">统计单个页面访问量PV</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#显示效果美化"><span class="section table-of-contents-text">显示效果美化</span></a></li></ol>
 </div>
 
 
             <div class="entry pink-link-context">
-                <p>趁着空隙时间，添加一个访问计数功能YY一下哈~<br>采用不蒜子访问计数脚本<br><strong>为什么用不蒜子？因为免费！因为免费！因为免费！</strong></p>
-<p><a href="http://ibruce.info/2015/04/04/busuanzi/" target="_blank" rel="external">不蒜子</a></p>
+                <p>趁着空隙时间，添加一个访问计数功能YY一下哈~<br>采用<a href="http://ibruce.info/2015/04/04/busuanzi/" target="_blank" rel="external">不蒜子</a>访问计数脚本<br><strong>为什么用<a href="http://ibruce.info/2015/04/04/busuanzi/" target="_blank" rel="external">不蒜子</a>？因为免费！因为免费！因为免费！</strong></p>
+<h2 id="配置js"><a href="#配置js" class="headerlink" title="配置js"></a>配置js</h2><p>打开themes/你的主题/layout/_partial/footer.ejs添加以下脚本即可<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;script <span class="keyword">async</span> src=<span class="string">"https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"</span>&gt;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="统计总访问量PV"><a href="#统计总访问量PV" class="headerlink" title="统计总访问量PV"></a>统计总访问量PV</h2><p>算法：pv的方式，单个用户连续点击n篇文章，记录n次访问量。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;span id=<span class="string">"busuanzi_container_site_pv"</span>&gt;</div><div class="line">    本站总访问量&lt;span id=<span class="string">"busuanzi_value_site_pv"</span>&gt;&lt;/span&gt;次</div><div class="line">&lt;<span class="regexp">/span&gt;</span></div></pre></td></tr></table></figure></p>
+<h2 id="统计总访问人数UV"><a href="#统计总访问人数UV" class="headerlink" title="统计总访问人数UV"></a>统计总访问人数UV</h2><p>算法：uv的方式，单个用户连续点击n篇文章，只记录1次访客数。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;span id=<span class="string">"busuanzi_container_site_uv"</span>&gt;</div><div class="line">  本站访客数&lt;span id=<span class="string">"busuanzi_value_site_uv"</span>&gt;&lt;/span&gt;人次</div><div class="line">&lt;<span class="regexp">/span&gt;</span></div></pre></td></tr></table></figure></p>
+<p>ps:复制代码添加到你需要显示的位置即可。<br><strong>如果你是用的hexo，打开themes/你的主题/layout/_partial/footer.ejs添加即可。</strong></p>
+<h2 id="统计单个页面访问量PV"><a href="#统计单个页面访问量PV" class="headerlink" title="统计单个页面访问量PV"></a>统计单个页面访问量PV</h2><p>算法：pv的方式，单个用户点击1篇文章，本篇文章记录1次阅读量。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;span id=<span class="string">"busuanzi_container_page_pv"</span>&gt;</div><div class="line">  本文总阅读量&lt;span id=<span class="string">"busuanzi_value_page_pv"</span>&gt;&lt;/span&gt;次</div><div class="line">&lt;<span class="regexp">/span&gt;</span></div></pre></td></tr></table></figure></p>
+<h2 id="显示效果美化"><a href="#显示效果美化" class="headerlink" title="显示效果美化"></a>显示效果美化</h2><p>参考<a href="http://ibruce.info/2015/04/04/busuanzi/" target="_blank" rel="external">不蒜子</a>即可美化显示效果，改天再美化吧~~~</p>
 
             </div>
         </div>
