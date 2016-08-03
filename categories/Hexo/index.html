@@ -36,7 +36,7 @@
 <body>
     <img src="/weixin_favicon.png" style="position: absolute; left: -9999px; opacity: 0; filter: alpha(opacity=0);">
 
-    <nav class="teal">
+    <nav class="teal lighten-1">
     <div class="nav-wrapper">
         <a href="#" data-activates="main-menu" class="button-collapse">
             <i class="fa fa-navicon"></i>
@@ -202,7 +202,7 @@
     
 
 <nav class="page-nav hide-on-small-only">
-    <div class="nav-wrapper teal">
+    <div class="nav-wrapper teal lighten-1">
         <span class="breadcrumb">Current page(Categories)</span>
         
 
@@ -240,17 +240,17 @@
 </div>
 
         <div class="fixed-action-btn float-sitemap">
-    <a class="btn-floating btn-large pink">
+    <a class="btn-floating btn-large green">
       <i class="fa fa-caret-square-o-up"></i>
     </a>
     <ul>
-      <li><a class="btn-return-top btn-floating waves-effect teal" title="Return to top"><i class="fa fa-arrow-circle-o-up"></i></a></li>
+      <li><a class="btn-return-top btn-floating waves-effect teal lighten-1" title="Return to top"><i class="fa fa-arrow-circle-o-up"></i></a></li>
       <li><a class="btn-floating waves-effect button-collapse yellow darken-1"  data-activates="main-menu" title="menu"><i class="fa fa-navicon"></i></a></li>
     </ul>
   </div>
 
     </main>
-    <footer class="page-footer teal darken-1">
+    <footer class="page-footer teal lighten-1 darken-1">
     
     <div class="container">
         <div class="row">
@@ -276,14 +276,14 @@
 
     <div class="container" style="color:WhiteSmoke;font-weight:300;word-spacing:2px;">
         <span id="busuanzi_container_site_pv">
-            view <span id="busuanzi_value_site_pv"></span> times
+            PV：<span id="busuanzi_value_site_pv"></span>
         </span>|
         <span id="busuanzi_container_site_uv">
-            view <span id="busuanzi_value_site_uv"></span> visitors
+            UV：<span id="busuanzi_value_site_uv"></span>
         </span>
     </div>
 
-    <div class="footer-copyright pink-link-context">
+    <div class="footer-copyright light-blue-link-context">
         <div class="container">
             © MinorBoy, All rights reserved.
             <p class="right" style="margin-top: 0;">Blog powered by <a href="https://hexo.io">Hexo</a> | Theme <a href="https://github.com/raytaylorlin/hexo-theme-raytaylorism">raytaylorism</a></p>
@@ -368,11 +368,11 @@
             $('li.tab a').hover(function() {
                 $(this).toggleClass('text-lighten-4');
             });
-            $('.indicator').addClass('pink lighten-2');
+            $('.indicator').addClass('green lighten-2');
 
             
             // 添加new标签
-            $('.menu-reading, .menu-about').append('<span class="new badge pink"></span>');
+            $('.menu-reading, .menu-about').append('<span class="new badge green"></span>');
             
 
             // 搜索功能
@@ -447,7 +447,7 @@
                             if (isMatch) {
                                 keywords.forEach(function(keyword) {
                                     var regS = new RegExp(keyword, "gi");
-                                    data_title = data_title.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                    data_title = data_title.replace(regS, "<span class=\"search-keyword light-blue lighten-2\">" + keyword + "</span>");
                                 });
 
                                 str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
@@ -469,7 +469,7 @@
                                     // highlight all keywords
                                     keywords.forEach(function(keyword) {
                                         var regS = new RegExp(keyword, "gi");
-                                        match_content = match_content.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                        match_content = match_content.replace(regS, "<span class=\"search-keyword light-blue lighten-2\">" + keyword + "</span>");
                                     });
 
                                     str += "<p class=\"search-result\">..." + match_content + "...</p>"

@@ -42,7 +42,7 @@
 <body>
     <img src="/weixin_favicon.png" style="position: absolute; left: -9999px; opacity: 0; filter: alpha(opacity=0);">
 
-    <nav class="teal">
+    <nav class="teal lighten-1">
     <div class="nav-wrapper">
         <a href="#" data-activates="main-menu" class="button-collapse">
             <i class="fa fa-navicon"></i>
@@ -206,7 +206,7 @@
     <main>
         <div class="container main-container">
     <nav class="page-nav hide-on-small-only">
-    <div class="nav-wrapper teal">
+    <div class="nav-wrapper teal lighten-1">
         <span class="breadcrumb">Current page(Categories)</span>
         
             
@@ -230,22 +230,22 @@
 
 
             </div>
-            <time class="pink-link-context" datetime="2016-08-01T07:03:11.228Z"><a href="/2016/08/01/myfirstpost/">2016-08-01</a></time>
+            <time class="light-blue-link-context" datetime="2016-08-01T07:03:11.228Z"><a href="/2016/08/01/myfirstpost/">2016-08-01</a></time>
 
             
     <div class="tags-row">
         
-            <a href="/tags/测试/" class="chip pink lighten-1">测试</a>
+            <a href="/tags/测试/" class="chip green">测试</a>
         
     </div>
 
 
-            <div class="toc pink-link-context hide-on-med-and-down">
+            <div class="toc light-blue-link-context hide-on-med-and-down">
     <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#命名规则"><span class="section table-of-contents-text">命名规则</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#1-常量"><span class="section table-of-contents-text">1. 常量</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#2-变量"><span class="section table-of-contents-text">2. 变量</span></a></li></ol></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#啦啦啦啦啦啦啦啦啦啦"><span class="section table-of-contents-text">啦啦啦啦啦啦啦啦啦啦</span></a>
 </div>
 
 
-            <div class="entry pink-link-context">
+            <div class="entry light-blue-link-context">
                 <h2 id="命名规则"><a href="#命名规则" class="headerlink" title="命名规则"></a>命名规则</h2><p>采用驼峰法命名规则</p>
 <h3 id="1-常量"><a href="#1-常量" class="headerlink" title="1. 常量"></a>1. 常量</h3><p>全部大写</p>
 <h3 id="2-变量"><a href="#2-变量" class="headerlink" title="2. 变量"></a>2. 变量</h3><p>全局变量 下划线开头</p>
@@ -265,17 +265,17 @@
 </div>
 
         <div class="fixed-action-btn float-sitemap">
-    <a class="btn-floating btn-large pink">
+    <a class="btn-floating btn-large green">
       <i class="fa fa-caret-square-o-up"></i>
     </a>
     <ul>
-      <li><a class="btn-return-top btn-floating waves-effect teal" title="Return to top"><i class="fa fa-arrow-circle-o-up"></i></a></li>
+      <li><a class="btn-return-top btn-floating waves-effect teal lighten-1" title="Return to top"><i class="fa fa-arrow-circle-o-up"></i></a></li>
       <li><a class="btn-floating waves-effect button-collapse yellow darken-1"  data-activates="main-menu" title="menu"><i class="fa fa-navicon"></i></a></li>
     </ul>
   </div>
 
     </main>
-    <footer class="page-footer teal darken-1">
+    <footer class="page-footer teal lighten-1 darken-1">
     
     <div class="container">
         <div class="row">
@@ -301,14 +301,14 @@
 
     <div class="container" style="color:WhiteSmoke;font-weight:300;word-spacing:2px;">
         <span id="busuanzi_container_site_pv">
-            view <span id="busuanzi_value_site_pv"></span> times
+            PV：<span id="busuanzi_value_site_pv"></span>
         </span>|
         <span id="busuanzi_container_site_uv">
-            view <span id="busuanzi_value_site_uv"></span> visitors
+            UV：<span id="busuanzi_value_site_uv"></span>
         </span>
     </div>
 
-    <div class="footer-copyright pink-link-context">
+    <div class="footer-copyright light-blue-link-context">
         <div class="container">
             © MinorBoy, All rights reserved.
             <p class="right" style="margin-top: 0;">Blog powered by <a href="https://hexo.io">Hexo</a> | Theme <a href="https://github.com/raytaylorlin/hexo-theme-raytaylorism">raytaylorism</a></p>
@@ -393,11 +393,11 @@
             $('li.tab a').hover(function() {
                 $(this).toggleClass('text-lighten-4');
             });
-            $('.indicator').addClass('pink lighten-2');
+            $('.indicator').addClass('green lighten-2');
 
             
             // 添加new标签
-            $('.menu-reading, .menu-about').append('<span class="new badge pink"></span>');
+            $('.menu-reading, .menu-about').append('<span class="new badge green"></span>');
             
 
             // 搜索功能
@@ -472,7 +472,7 @@
                             if (isMatch) {
                                 keywords.forEach(function(keyword) {
                                     var regS = new RegExp(keyword, "gi");
-                                    data_title = data_title.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                    data_title = data_title.replace(regS, "<span class=\"search-keyword light-blue lighten-2\">" + keyword + "</span>");
                                 });
 
                                 str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
@@ -494,7 +494,7 @@
                                     // highlight all keywords
                                     keywords.forEach(function(keyword) {
                                         var regS = new RegExp(keyword, "gi");
-                                        match_content = match_content.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                        match_content = match_content.replace(regS, "<span class=\"search-keyword light-blue lighten-2\">" + keyword + "</span>");
                                     });
 
                                     str += "<p class=\"search-result\">..." + match_content + "...</p>"
