@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/MinorBoy/minorboy.github.io/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/MinorBoy/minorboy.github.io/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/MinorBoy/minorboy.github.io/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/MinorBoy/minorboy.github.io/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/MinorBoy/minorboy.github.io/css/main.css">
+
+
+<link rel="stylesheet" href="/MinorBoy/minorboy.github.io/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"github.com","root":"/MinorBoy/minorboy.github.io/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="其实，安装配置很简单，根据以下说明文档就可以搞定。 1themes&#x2F;raytaylorism&#x2F;README.md #说明文档 本文是从说明文档摘抄出来并整理而成~~~">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Hexo美化】使用raytaylorism主题">
+<meta property="og:url" content="https://github.com/MinorBoy/minorboy.github.io/2016/08/02/hexo-new-theme/index.html">
+<meta property="og:site_name" content="MB Story">
+<meta property="og:description" content="其实，安装配置很简单，根据以下说明文档就可以搞定。 1themes&#x2F;raytaylorism&#x2F;README.md #说明文档 本文是从说明文档摘抄出来并整理而成~~~">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2016-08-02T11:32:21.000Z">
+<meta property="article:modified_time" content="2024-01-03T08:58:31.666Z">
+<meta property="article:author" content="MinorBoy">
+<meta property="article:tag" content="raytaylorism">
+<meta property="article:tag" content="theme">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://github.com/MinorBoy/minorboy.github.io/2016/08/02/hexo-new-theme/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>【Hexo美化】使用raytaylorism主题 | MB Story</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/MinorBoy/minorboy.github.io/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">MB Story</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">MB Story | coder</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/MinorBoy/minorboy.github.io/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/MinorBoy/minorboy.github.io/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/MinorBoy/minorboy.github.io/2016/08/02/hexo-new-theme/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/MinorBoy/minorboy.github.io/images/avatar.gif">
+      <meta itemprop="name" content="MinorBoy">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MB Story">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【Hexo美化】使用raytaylorism主题
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-08-02 19:32:21" itemprop="dateCreated datePublished" datetime="2016-08-02T19:32:21+08:00">2016-08-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-01-03 16:58:31" itemprop="dateModified" datetime="2024-01-03T16:58:31+08:00">2024-01-03</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/MinorBoy/minorboy.github.io/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>其实，安装配置很简单，根据以下说明文档就可以搞定。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">themes/raytaylorism/README.md #说明文档</span><br></pre></td></tr></table></figure>
+<p>本文是从说明文档摘抄出来并整理而成~~~</p>
+<span id="more"></span>
+
+<h1 id="安装raytaylorism主题"><a href="#安装raytaylorism主题" class="headerlink" title="安装raytaylorism主题"></a>安装raytaylorism主题</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd yourblog</span><br><span class="line">git clone https://github.com/raytaylorlin/hexo-theme-raytaylorism.git themes/raytaylorism</span><br></pre></td></tr></table></figure>
+
+<h2 id="基础配置"><a href="#基础配置" class="headerlink" title="基础配置"></a>基础配置</h2><ol>
+<li><p>修改 <code>_config.yml</code> 中的<code>theme</code>一项的值为<code>raytaylorism</code></p>
+</li>
+<li><p>由于本主题使用了[Data Files]数据文件和额外的layout文件，所以请复制以下文件到你的博客目录中，否则在启动server时可能会报错</p>
+<ul>
+<li><strong>复制<code>yourblog/themes/raytaylorism/_data</code>文件夹到<code>yourblog/source</code>目录下</strong></li>
+<li><strong>复制<code>yourblog/themes/raytaylorism/_md/</code>下所有文件夹（about和reading）到<code>yourblog/source</code>目录下</strong>（不包含_md目录）</li>
+</ul>
+</li>
+<li><p>在你的<code>yourblog/_config.yml</code>配置文件的<code>#pagination</code>的位置添加下面配置（禁用归档、标签、目录页面的分页功能）</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">archive_generator:</span><br><span class="line">  per_page: 0</span><br><span class="line">tag_generator:</span><br><span class="line">  per_page: 0</span><br><span class="line">category_generator:</span><br><span class="line">  per_page: 0</span><br></pre></td></tr></table></figure>
+
+<h2 id="DIY样式配置"><a href="#DIY样式配置" class="headerlink" title="DIY样式配置"></a>DIY样式配置</h2><ul>
+<li><strong>主题颜色配置</strong>：<br>如果对主题的配色不满意，可以自行在<code>yourblog/themes/raytaylorism/_config.yml</code>中的<code>color</code>一项进行配置。其中各部件的颜色字符串命名采用<a target="_blank" rel="noopener" href="http://materializecss.com/color.html#palette">Materializecss色板</a>规范。<br>注意：<code>link</code>、<code>article_title_link</code>和<code>tab</code>配置的是文字的颜色，<br><strong>因此不可以给这几项配置<code>lighten</code>和<code>darken</code>的颜色加亮加暗的后缀</strong>。</li>
+<li><strong>页面标题</strong>：<br>在<code>yourblog/_config.yml</code>中，<code>title</code>项决定了页面header中显示的标题，<code>subtitle</code>决定了浏览器的<code>&lt;title&gt;</code>标签内容。</li>
+<li><strong>favicon</strong>：<br>请将<code>yourblog/themes/raytaylorism/source/favicon.png</code>替换为你自己的图标文件，<br><strong>保持<code>favicon.png</code>命名不变</strong>。</li>
+<li><strong>多语言</strong>：<br>目前主题支持简体中文、繁体中文和英文三种语言，<br>可以将<code>yourblog/_config.yml</code>中<code>language</code>一项设置为<code>zh-CN</code>、<code>zh-TW</code>、<code>en</code>实现</li>
+</ul>
+<h2 id="数据配置"><a href="#数据配置" class="headerlink" title="数据配置"></a>数据配置</h2><ul>
+<li><strong>外部链接</strong>：<br>在<code>yourblog/source/_data/link.json</code>数据文件中进行配置<ul>
+<li>社交平台：对应<code>social</code>项，预设有<code>weibo</code>和<code>github</code>两种。</li>
+<li>友情链接：对应<code>extern</code>项</li>
+</ul>
+</li>
+<li><strong>首页幻灯片</strong>：<br>在<code>yourblog/source/_data/slider.json</code>数据文件中进行配置。不需要幻灯片，直接把<code>slider.json</code>删除即可。</li>
+<li><strong>关于页面</strong>：<br><code>yourblog/themes/raytaylorism/_md/about/index.md</code>文件为自我介绍的正文，markdown书写即可。在<code>yourblog/source/_data/about.json</code>数据文件中配置关于页面的其他项。<ul>
+<li><code>avatar</code>：String类型，头像图片链接</li>
+<li><code>name</code>：String类型，自己的姓名</li>
+<li><code>tag</code>: String类型，描述自己的标签，<strong>主要显示在侧滑栏的头部</strong></li>
+<li><code>desc</code>：String类型，对自己的简短描述</li>
+<li><code>skills</code>：Object类型，对象技能展示。</li>
+<li><code>projects</code>：Array类型，作品与项目展示，</li>
+<li><code>reward</code>：Array类型，打赏二维码图片列表。</li>
+</ul>
+</li>
+<li><strong>读书页面</strong>：<br>在<code>yourblog/source/_data/reading.json</code>数据文件中进行配置。读书页面有“已读”“在读”和“想读”三栏，分别对应<code>contents</code>项中的<code>readed</code>、<code>reading</code>和<code>wanted</code>字段，每个字段对应一个书籍列表，按照例子进行修改即可。</li>
+<li><strong>new标签</strong>：<br>在<code>yourblog/source/_data/hint.json</code>数据文件中进行配置。<code>selector</code>项是一个数组，里面可以包含若干个CSS选择器用于选择要添加new标签的DOM元素。</li>
+</ul>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul>
+<li>要配置layout，才能使数据配置(json文件)生效</li>
+<li>配置layout，其实就是新建一个page，配置到post里面去<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo n page about #新建一个page,也就是layout</span><br></pre></td></tr></table></figure></li>
+<li><code>source/_data</code>：存放json数据</li>
+<li><code>source/_post</code>：<code>_post</code>是默认的<code>layout</code>，新建port没有指定<code>layout</code>时，默认存放到此<code>layout</code></li>
+<li><code>source/about</code>：<code>about</code>是自定义的layout</li>
+</ul>
+<h2 id="更换电脑后遇到问题"><a href="#更换电脑后遇到问题" class="headerlink" title="更换电脑后遇到问题"></a>更换电脑后遇到问题</h2><p>执行<code>$ hexo g</code>，提示<code>WARN: no layout:index.html</code><br>是因为更换电脑后重新部署，config.xml会将theme还原成默认配置，按如下方法修改配置：<br>1修改 <code>_config.yml</code> 中的<code>theme</code>一项的值为<code>raytaylorism</code><br>再<code>$ hexo clean</code>,再<code>$ hexo g</code>，搞定！！！</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/MinorBoy/minorboy.github.io/tags/raytaylorism/" rel="tag"># raytaylorism</a>
+              <a href="/MinorBoy/minorboy.github.io/tags/theme/" rel="tag"># theme</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/MinorBoy/minorboy.github.io/2016/08/03/hexo-add-count-script/" rel="next" title="【Hexo美化】添加访问计数">
+      【Hexo美化】添加访问计数 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85raytaylorism%E4%B8%BB%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">安装raytaylorism主题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE"><span class="nav-number">1.1.</span> <span class="nav-text">基础配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DIY%E6%A0%B7%E5%BC%8F%E9%85%8D%E7%BD%AE"><span class="nav-number">1.2.</span> <span class="nav-text">DIY样式配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%85%8D%E7%BD%AE"><span class="nav-number">1.3.</span> <span class="nav-text">数据配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">1.4.</span> <span class="nav-text">注意事项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%8D%A2%E7%94%B5%E8%84%91%E5%90%8E%E9%81%87%E5%88%B0%E9%97%AE%E9%A2%98"><span class="nav-number">1.5.</span> <span class="nav-text">更换电脑后遇到问题</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">MinorBoy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/MinorBoy/minorboy.github.io/archives/">
+        
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MinorBoy</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/MinorBoy/minorboy.github.io/lib/anime.min.js"></script>
+  <script src="/MinorBoy/minorboy.github.io/lib/velocity/velocity.min.js"></script>
+  <script src="/MinorBoy/minorboy.github.io/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/MinorBoy/minorboy.github.io/js/utils.js"></script>
+
+<script src="/MinorBoy/minorboy.github.io/js/motion.js"></script>
+
+
+<script src="/MinorBoy/minorboy.github.io/js/schemes/muse.js"></script>
+
+
+<script src="/MinorBoy/minorboy.github.io/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/MinorBoy/minorboy.github.io/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/MinorBoy/minorboy.github.io/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/MinorBoy/minorboy.github.io/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/MinorBoy/minorboy.github.io/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/MinorBoy/minorboy.github.io/css/main.css">
+
+
+<link rel="stylesheet" href="/MinorBoy/minorboy.github.io/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"github.com","root":"/MinorBoy/minorboy.github.io/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="git pull 暴力覆盖本地文件123git fetch --all  git reset --hard origin&#x2F;master git pull">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git命令行使用记录">
+<meta property="og:url" content="https://github.com/MinorBoy/minorboy.github.io/2017/09/25/daily-note-git/index.html">
+<meta property="og:site_name" content="MB Story">
+<meta property="og:description" content="git pull 暴力覆盖本地文件123git fetch --all  git reset --hard origin&#x2F;master git pull">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-09-25T08:27:32.000Z">
+<meta property="article:modified_time" content="2024-01-03T08:58:31.666Z">
+<meta property="article:author" content="MinorBoy">
+<meta property="article:tag" content="Git">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://github.com/MinorBoy/minorboy.github.io/2017/09/25/daily-note-git/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Git命令行使用记录 | MB Story</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/MinorBoy/minorboy.github.io/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">MB Story</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">MB Story | coder</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/MinorBoy/minorboy.github.io/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/MinorBoy/minorboy.github.io/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/MinorBoy/minorboy.github.io/2017/09/25/daily-note-git/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/MinorBoy/minorboy.github.io/images/avatar.gif">
+      <meta itemprop="name" content="MinorBoy">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MB Story">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Git命令行使用记录
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-09-25 16:27:32" itemprop="dateCreated datePublished" datetime="2017-09-25T16:27:32+08:00">2017-09-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-01-03 16:58:31" itemprop="dateModified" datetime="2024-01-03T16:58:31+08:00">2024-01-03</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/MinorBoy/minorboy.github.io/categories/%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">开发</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="git-pull-暴力覆盖本地文件"><a href="#git-pull-暴力覆盖本地文件" class="headerlink" title="git pull 暴力覆盖本地文件"></a><strong>git pull 暴力覆盖本地文件</strong></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git fetch --all  </span><br><span class="line">git reset --hard origin/master </span><br><span class="line">git pull</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<h3 id="Git界面工具菜单项对应的Git命令"><a href="#Git界面工具菜单项对应的Git命令" class="headerlink" title="Git界面工具菜单项对应的Git命令"></a><strong>Git界面工具菜单项对应的Git命令</strong></h3><ul>
+<li>Fetch…<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git fetch -v --progress <span class="string">&quot;origin&quot;</span></span><br></pre></td></tr></table></figure></li>
+<li>Reset…<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard</span><br></pre></td></tr></table></figure></li>
+</ul>
+<hr>
+<h3 id="自定义log输出格式"><a href="#自定义log输出格式" class="headerlink" title="自定义log输出格式"></a><strong>自定义log输出格式</strong></h3><ul>
+<li><p>显示提交信息，作者，提交时间：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> --pretty=format:<span class="string">&#x27;-%Creset %s %C&lt;bold blue&gt;&lt;%an&gt; %Cgreen &lt;%ai&gt;&#x27;</span> --abbrev-commit</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>显示提交信息，作者：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> --pretty=format:<span class="string">&#x27;-%Creset %s %C&lt;bold blue&gt;&lt;%an&gt;&#x27;</span> --abbrev-commit</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>筛选某个日期后的log：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> --after=2017-05-26-22</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>筛选某一秒后的log：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> --after=2017-05-26-22-12-30-00</span><br></pre></td></tr></table></figure></li>
+</ul>
+<hr>
+<h3 id="Git提交到多个远程仓库"><a href="#Git提交到多个远程仓库" class="headerlink" title="Git提交到多个远程仓库"></a><strong>Git提交到多个远程仓库</strong></h3><p><a target="_blank" rel="noopener" href="http://blog.csdn.net/isea533/article/details/41382699">http://blog.csdn.net/isea533/article/details/41382699</a></p>
+<p>先再仓库A关联仓库B，再用push 加选项–all，将本地所有分支都推送到已关联的所有仓库。</p>
+<hr>
+<h3 id="git的用户配置"><a href="#git的用户配置" class="headerlink" title="git的用户配置"></a><strong>git的用户配置</strong></h3><p>git的全局配置，存储于$HOME&#x2F;.gitconfig 里，这里的配置影响当前用户的所有git repo。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1. $ git config --global user.name   </span><br><span class="line">2. $ git config --global user.email handsomerocco@gmail.com  </span><br></pre></td></tr></table></figure>
+<p>git的局部配置，存储于$HOME&#x2F;.gitconfig 里，这里的配置影响当前用户的所有git repo。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">3. $ git config user.name  “username” </span><br><span class="line">4. $ git config user.email handsomerocco@gmail.com  </span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a><strong>版本回退</strong></h3><ul>
+<li>命令行方式操作</li>
+</ul>
+<p>未push的回退 ： </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset</span><br></pre></td></tr></table></figure>
+
+<p>已push的回退 ： </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git revert</span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li>TortoiseGit界面操作</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">revert to this version ： <span class="comment">#回退到當前版本</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">revert to parent version ： ???</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="打标签tag"><a href="#打标签tag" class="headerlink" title="打标签tag"></a><strong>打标签tag</strong></h3><p>查看当前已有标签：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag</span><br></pre></td></tr></table></figure>
+
+<p>创建一个标签：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag v1.7.8.0</span><br></pre></td></tr></table></figure>
+
+<p>创建一个标签：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag v1.7.8.0 -m <span class="string">&quot;这是一个标签的message&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>已上命令是在本地创建标签，然后我们需求将标签提交到远程仓库</p>
+<p>提交（发布）一个标签：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin v1.7.8.0</span><br></pre></td></tr></table></figure>
+
+<p>删除本地tag</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag -d v1.7.8.0</span><br></pre></td></tr></table></figure>
+
+<p>用push, 删除远程tag</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin :refs/tags/v1.7.8.0</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a><strong>分支管理</strong></h3><p>创建一个分支：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b 1.8.0.0</span><br></pre></td></tr></table></figure>
+
+<p>切换到指定分支：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout 1.8.0.0</span><br></pre></td></tr></table></figure>
+
+<p>将本地创建的一个分支提交到远程仓库，作为远程仓库的一个分支：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin 1.8.0.0:1.8.0.0</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="克隆仓库"><a href="#克隆仓库" class="headerlink" title="克隆仓库"></a><strong>克隆仓库</strong></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> xxx.git</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="如何clone-git-项目到一个非空目录"><a href="#如何clone-git-项目到一个非空目录" class="headerlink" title="如何clone git 项目到一个非空目录"></a><strong>如何clone git 项目到一个非空目录</strong></h3><p>如果我们往一个非空的目录下 clone git 项目，就会提示错误信息：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fatal: destination path <span class="string">&#x27;.&#x27;</span> already exists and is not an empty directory.</span><br></pre></td></tr></table></figure>
+
+<p>解决的办法是：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. 进入非空目录，假设是 /workdir/proj1</span><br><span class="line">2. git <span class="built_in">clone</span> --no-checkout https://git.oschina.net/NextApp/platform.git tmp</span><br><span class="line">3. <span class="built_in">mv</span> tmp/.git .   <span class="comment">#将 tmp 目录下的 .git 目录移到当前目录</span></span><br><span class="line">4. <span class="built_in">rmdir</span> tmp</span><br><span class="line">5. git reset --hard HEAD</span><br></pre></td></tr></table></figure>
+
+<p>然后就可以进行各种正常操作了。</p>
+<hr>
+<h3 id="git-pull-失败，提示无法创建index-lock文件"><a href="#git-pull-失败，提示无法创建index-lock文件" class="headerlink" title="git pull 失败，提示无法创建index.lock文件"></a><strong>git pull 失败，提示无法创建index.lock文件</strong></h3><p>UNABLE TO CREATE ‘…GIT&#x2F;INDEX.LOCK’ FILE EXISTS </p>
+<p>解决办法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rm</span> .git/index.lock</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="git操作提示Auto-packing-the-repository-for-optimum-performance-You-may-also-run-“git-gc”-manually"><a href="#git操作提示Auto-packing-the-repository-for-optimum-performance-You-may-also-run-“git-gc”-manually" class="headerlink" title="git操作提示Auto packing the repository for optimum performance. You may also run “git gc” manually."></a>git操作提示Auto packing the repository for optimum performance. You may also run “git gc” manually.</h3><p>问题：<br>在对git库执行一些操作命令时（比如git am ,git pull，git push等操作）的时候，会出现类似如下提示（我是在用git am打patch时出现的，其他情况也是一回事）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ronny@ronny:~/tmpgitrepol$ git am ~/03patch/kernel/0001-add-kernel-version.patch --keep-cr</span><br><span class="line">Applying: add kernel version <span class="keyword">for</span> compile</span><br><span class="line">Auto packing the repository <span class="keyword">for</span> optimum performance. You may also</span><br><span class="line">run <span class="string">&quot;git gc&quot;</span> manually. See <span class="string">&quot;git help gc&quot;</span> <span class="keyword">for</span> more information.</span><br><span class="line">Counting objects: 84286, <span class="keyword">done</span>.</span><br></pre></td></tr></table></figure>
+<p>而且git am　后不退出，必须要ctrl+c退出。（其实是git 在将松散对象打包，这个需要时间，没有执行完打包，所以没退出）<br>里面主要关心如下两句：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Auto packing the repository <span class="keyword">for</span> optimum performance. You may also</span><br><span class="line">run <span class="string">&quot;git gc&quot;</span> manually. See <span class="string">&quot;git help gc&quot;</span> <span class="keyword">for</span> more information.</span><br></pre></td></tr></table></figure>
+<p>即表示：<br>自动包装最佳性能的存储库。<br>你也可以手动运行 ‘get gc’ 。查看更多信息请执行“git help gc”。</p>
+<p>当有这个提示的时候，直接运行 ’ git gc ‘，就可以了。</p>
+<p>原因：<br>Git 往磁盘保存对象时默认使用的格式叫松散对象 (loose object) 格式。Git 时不时地将这些对象打包至一个叫 packfile 的二进制文件以节省空间并提高效率。当仓库中有太多的松散对象则就会提示你运行 ’ git gc ‘。<br>解决办法：<br>我们可以运行 ’ find .git&#x2F;objects -type f ’ 命令，查看一下 objects 目录里有多少对象，如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">1. ronny@ronny:~/tmpgitrepol$ find .git/objects -<span class="built_in">type</span> f  </span><br><span class="line">2. .git/objects/e4/00a9bf597d6956e6cfc5a4ba57e0f8d78a3025  </span><br><span class="line">3. .git/objects/70/8d7c923cb5954bfe1944e7cf7d7de93298f42f  </span><br><span class="line">4. .git/objects/70/86ddbb3226ad236d3d806cd530006e07392048  </span><br><span class="line">5. .git/objects/bd/b9f69f1b169e6f364455636ef3fb9037f345c5  </span><br><span class="line">6. .git/objects/c4/49782586498f0669271dbb5b2ae92abae7b7cd  </span><br><span class="line">7. .git/objects/4a/4c07ddbe727381f1ee9aab6faa194827419f1b  </span><br><span class="line">8. .git/objects/17/df87cafd85c400b71c7e56ffc2eaa78d2a55d8  </span><br><span class="line">9. .git/objects/ad/f130fd58cd2a0831a47f17e7f14d7ed4d86f9c  </span><br><span class="line">10. .git/objects/97/9c677acf5eb4e45ebe299e8c4b947d899b01af  </span><br><span class="line">11. .git/objects/79/56a405a7bc6e412685a967b3e798445c31bb36  </span><br><span class="line">12. .git/objects/79/12f0ebebb70a675e6ffa57703ddb78bf99d221  </span><br><span class="line">13. .git/objects/4b/ee144e033edd74677a14c311b1eb32b6ef8d6d  </span><br><span class="line">14. .git/objects/4b/1c9b2ce657a6677143b3c08b05379c6b62af05  </span><br><span class="line">15. .git/objects/info/packs  </span><br><span class="line">16. .git/objects/da/3de9a5f2e2d43a9bd53f74368f7e3623d1c1f6  </span><br><span class="line">17. .git/objects/47/b15e4bb0313b9255252c6815bbeb6cf56f9f2c  </span><br><span class="line">18. .git/objects/72/3be48015613503f9c315781b6c7bc60de76c0b  </span><br><span class="line">19. ..........................  </span><br><span class="line">20. .git/objects/d6/6bc0f7bd27bf0fc0383792871854c497a01e3d  </span><br><span class="line">21. .git/objects/d6/9a6b3dcb61590a63ca464d69b3613be857936b  </span><br><span class="line">22. .git/objects/pack/pack-862a0b39f354a7fde317459d6dcb8162c865d172.pack  </span><br><span class="line">23. .git/objects/pack/pack-862a0b39f354a7fde317459d6dcb8162c865d172.idx  </span><br><span class="line">24. .git/objects/7f/d654bfdd3255e07154ff3ef8388e295d79e3b0  </span><br><span class="line">25. .git/objects/32/cef5fe936a99b2875942dbbefb93242df454fd  </span><br><span class="line">26. .git/objects/c3/0e9e1875925d71757ffda53b103f99c56d5bda  </span><br><span class="line">27. .git/objects/3f/87d962119364899e0ad111d869f4fb289bad3b  </span><br><span class="line">28. .git/objects/9c/d6bd685d29237f2b82425019dcc549781932a2  </span><br><span class="line">29. .git/objects/95/557cadc1df7bcc8657a842fbf35fb0566d84e9  </span><br><span class="line">30. .git/objects/ee/abfadeea2c0c6467e279d0c8907141e0a27d1c  </span><br><span class="line">31.   </span><br><span class="line">32. ..........................  </span><br><span class="line">33.   </span><br><span class="line">34. .git/objects/d7/f7edb7d654eccd6b7acd0d2e501793bf14e42f  </span><br><span class="line">35. .git/objects/bc/b69da6f5b1294e32deb97046a80dac8b473ddd  </span><br><span class="line">36. .git/objects/73/51b70ef6db6adc61da2c766eb13397b6506152  </span><br><span class="line">37. .git/objects/e2/4d68e5288cfbc200b863c16178f0c32ef5d672  </span><br><span class="line">38. .git/objects/cb/588c96be139adaaaafed4225b16452fc3b69b3  </span><br><span class="line">39. .git/objects/0b/babb1c4e28109bb3cf8e5b9ece5aaeec90d417  </span><br><span class="line">40. .git/objects/28/043911626d5f683938f47477e8680b7d654710  </span><br><span class="line">41. .git/objects/a6/5151506d5821f160bf03e19ec362ba1929a79a  </span><br><span class="line">42. .git/objects/b3/8f35933655073128e9b2a5ebdd6c72d8090811  </span><br><span class="line">43. .git/objects/98/1b94a3bf5ab22f868452d7a1eb5128278ae3d7  </span><br></pre></td></tr></table></figure>
+<p>然后我们执行git gc试试</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1. git gc  </span><br><span class="line">2. Counting objects: 84389, <span class="keyword">done</span>.  </span><br><span class="line">3. Delta compression using up to 8 threads.  </span><br><span class="line">4. Compressing objects: 100% (52015/52015), <span class="keyword">done</span>.  </span><br><span class="line">5. Writing objects: 100% (84389/84389), <span class="keyword">done</span>.  </span><br><span class="line">6. Total 84389 (delta 31577), reused 84317 (delta 31531)  </span><br></pre></td></tr></table></figure>
+
+<p>然后在运行 ’ git gc ’ 命令后，再执行刚才的命令，看下 object 目录里面还剩下多少对象，如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. ronny@ronny:~/tmpgitrepol$ find .git/objects -<span class="built_in">type</span> f  </span><br><span class="line">2.   </span><br><span class="line">3. .git/objects/info/packs  </span><br><span class="line">4. .git/objects/pack/pack-ad6385919cc8c0e4ba2ec4cf7c8e8119a337f625.idx  </span><br><span class="line">5. .git/objects/pack/pack-ad6385919cc8c0e4ba2ec4cf7c8e8119a337f625.pac</span><br></pre></td></tr></table></figure>
+
+<p>接下来再执行git 命令的时候就没有这种情况了，patch直接应用，且不再有上面的提示。</p>
+<p>解决办法2：静静等待几分钟自动完成。哈哈哈哈哈哈哈哈哈哈….</p>
+<hr>
+<h3 id="合并来自其他分支的指定的n个commit"><a href="#合并来自其他分支的指定的n个commit" class="headerlink" title="合并来自其他分支的指定的n个commit"></a><strong>合并来自其他分支的指定的n个commit</strong></h3><ul>
+<li><p>功能：<br>git cherry-pick可以选择某一个分支中的一个或几个commit(s)来进行操作。<br>选择将N个commit合并到当前本地分支。</p>
+</li>
+<li><p>示例：<br>当前本地分支dev,远程分支dev2，需要将dev2的某个commit合并过来。</p>
+</li>
+</ul>
+<p>首先，本地分支目录下，点击show logs，切换到查看dev2的logs。<br>然后，选中指定commit，右键选择cherry pick，再点continue，解决冲突，再点done。完成将dev2的commit提交到本地dev分支。<br>最后，本地测试一下，没有问题的话，直接push。就可以了。</p>
+<hr>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/MinorBoy/minorboy.github.io/tags/Git/" rel="tag"># Git</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/MinorBoy/minorboy.github.io/2017/09/25/test-travis-ci/" rel="prev" title="使用Travis-CI自动部署HEXO到GitHub">
+      <i class="fa fa-chevron-left"></i> 使用Travis-CI自动部署HEXO到GitHub
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/MinorBoy/minorboy.github.io/2017/09/26/semver-study/" rel="next" title="学习semver版本号规范">
+      学习semver版本号规范 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#git-pull-%E6%9A%B4%E5%8A%9B%E8%A6%86%E7%9B%96%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text">git pull 暴力覆盖本地文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git%E7%95%8C%E9%9D%A2%E5%B7%A5%E5%85%B7%E8%8F%9C%E5%8D%95%E9%A1%B9%E5%AF%B9%E5%BA%94%E7%9A%84Git%E5%91%BD%E4%BB%A4"><span class="nav-number">2.</span> <span class="nav-text">Git界面工具菜单项对应的Git命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89log%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">自定义log输出格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git%E6%8F%90%E4%BA%A4%E5%88%B0%E5%A4%9A%E4%B8%AA%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="nav-number">4.</span> <span class="nav-text">Git提交到多个远程仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git%E7%9A%84%E7%94%A8%E6%88%B7%E9%85%8D%E7%BD%AE"><span class="nav-number">5.</span> <span class="nav-text">git的用户配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80"><span class="nav-number">6.</span> <span class="nav-text">版本回退</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%93%E6%A0%87%E7%AD%BEtag"><span class="nav-number">7.</span> <span class="nav-text">打标签tag</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86"><span class="nav-number">8.</span> <span class="nav-text">分支管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%8B%E9%9A%86%E4%BB%93%E5%BA%93"><span class="nav-number">9.</span> <span class="nav-text">克隆仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95clone-git-%E9%A1%B9%E7%9B%AE%E5%88%B0%E4%B8%80%E4%B8%AA%E9%9D%9E%E7%A9%BA%E7%9B%AE%E5%BD%95"><span class="nav-number">10.</span> <span class="nav-text">如何clone git 项目到一个非空目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-pull-%E5%A4%B1%E8%B4%A5%EF%BC%8C%E6%8F%90%E7%A4%BA%E6%97%A0%E6%B3%95%E5%88%9B%E5%BB%BAindex-lock%E6%96%87%E4%BB%B6"><span class="nav-number">11.</span> <span class="nav-text">git pull 失败，提示无法创建index.lock文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git%E6%93%8D%E4%BD%9C%E6%8F%90%E7%A4%BAAuto-packing-the-repository-for-optimum-performance-You-may-also-run-%E2%80%9Cgit-gc%E2%80%9D-manually"><span class="nav-number">12.</span> <span class="nav-text">git操作提示Auto packing the repository for optimum performance. You may also run “git gc” manually.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%88%E5%B9%B6%E6%9D%A5%E8%87%AA%E5%85%B6%E4%BB%96%E5%88%86%E6%94%AF%E7%9A%84%E6%8C%87%E5%AE%9A%E7%9A%84n%E4%B8%AAcommit"><span class="nav-number">13.</span> <span class="nav-text">合并来自其他分支的指定的n个commit</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">MinorBoy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/MinorBoy/minorboy.github.io/archives/">
+        
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MinorBoy</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/MinorBoy/minorboy.github.io/lib/anime.min.js"></script>
+  <script src="/MinorBoy/minorboy.github.io/lib/velocity/velocity.min.js"></script>
+  <script src="/MinorBoy/minorboy.github.io/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/MinorBoy/minorboy.github.io/js/utils.js"></script>
+
+<script src="/MinorBoy/minorboy.github.io/js/motion.js"></script>
+
+
+<script src="/MinorBoy/minorboy.github.io/js/schemes/muse.js"></script>
+
+
+<script src="/MinorBoy/minorboy.github.io/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
