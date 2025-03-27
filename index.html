@@ -146,6 +146,127 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.anystory.xyz/2024/04/22/llm%E9%83%A8%E7%BD%B2%EF%BC%9Allama-app/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="MinorBoy">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MB Story">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/04/22/llm%E9%83%A8%E7%BD%B2%EF%BC%9Allama-app/" class="post-title-link" itemprop="url">llm部署：llama.app</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-04-22 16:47:00" itemprop="dateCreated datePublished" datetime="2024-04-22T16:47:00+08:00">2024-04-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-03-27 16:57:59" itemprop="dateModified" datetime="2025-03-27T16:57:59+08:00">2025-03-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/llm/" itemprop="url" rel="index"><span itemprop="name">llm</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>2024-04-22 16:47</p>
+</blockquote>
+<hr>
+<h1 id="llama-app"><a href="#llama-app" class="headerlink" title="llama.app"></a>llama.app</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/ggerganov/llama.cpp.git">仓库</a></li>
+<li>支持<code>http server</code>部署</li>
+<li>支持一键启动</li>
+<li>丰富的启动参数</li>
+<li>支持CPU和GPU运行</li>
+</ul>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ul>
+<li><p><strong>下载（CUDA12.X）</strong><br>  <a target="_blank" rel="noopener" href="https://github.com/ggerganov/llama.cpp/releases/download/b2696/llama-b2696-bin-win-cuda-cu12.2.0-x64.zip">https://github.com/ggerganov/llama.cpp/releases/download/b2696/llama-b2696-bin-win-cuda-cu12.2.0-x64.zip</a></p>
+</li>
+<li><p><strong>HTTP server启动命令</strong></p>
+<ul>
+<li><p>CPU模式，127.0.0.1:8080</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">server.exe -m models\7B\ggml-model.gguf -c 2048</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>GPU模式，127.0.0.1:8080</p>
+</li>
+</ul>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">server.exe -m models\7B\ggml-model.gguf -c 2048 -ngl 50</span><br></pre></td></tr></table></figure>
+<ul>
+<li>GPU模式，10.168.166.90:8080  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">server.exe -m models\7B\ggml-model.gguf -c 2048 -ngl 50 --host 10.168.166.90</span><br></pre></td></tr></table></figure></li>
+<li>GPU模式，10.168.166.90:8777</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">server.exe -m models\7B\ggml-model.gguf -c 2048 -ngl 50 --host 10.168.166.90 --port 8777</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>常用参数</strong><ul>
+<li><code>-ngl</code><br>  <code>-ngl</code>后面需要加整数参数，表示多少层offload到GPU（比如<code>-ngl 30</code>表示把30层参数offload到GPU）。这个值需要自己试探，比如加到多少层不OOM。llama.cpp会有log，关注VRAM使用情况，例如：  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">llama_model_load_internal: [cublas] offloading 30 layers to GPU</span><br><span class="line">llama_model_load_internal: [cublas] total VRAM used: 10047 MB</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h2 id="http-url-test"><a href="#http-url-test" class="headerlink" title="http url test"></a>http url test</h2><p><a target="_blank" rel="noopener" href="https://github.com/ggerganov/llama.cpp/tree/master/examples/server#advanced-testing">完整URL参数</a></p>
+<h3 id="GET"><a href="#GET" class="headerlink" title="GET"></a>GET</h3><ul>
+<li><code>/health</code>: 返回服务器当前状态</li>
+</ul>
+<h3 id="POST"><a href="#POST" class="headerlink" title="POST"></a>POST</h3><ul>
+<li><p><code>/completion</code>: 发送提示词<code>prompt</code>, 返回预测结果.</p>
+</li>
+<li><p>示例</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">curl --request POST \</span><br><span class="line">    --url http://localhost:8080/completion \</span><br><span class="line">    --header &quot;Content-Type: application/json&quot; \</span><br><span class="line">    --data &#x27;&#123;&quot;prompt&quot;: &quot;Building a website can be done in 10 simple steps:&quot;,&quot;n_predict&quot;: 128&#125;&#x27;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<hr>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.anystory.xyz/2024/01/03/myfirstpost/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -858,90 +979,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.anystory.xyz/2016/08/04/hexo-qiniu-space/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="MinorBoy">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MB Story">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2016/08/04/hexo-qiniu-space/" class="post-title-link" itemprop="url">【资源外链】采用七牛云免费存储空间</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-08-04 12:47:07" itemprop="dateCreated datePublished" datetime="2016-08-04T12:47:07+08:00">2016-08-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-01-03 16:58:31" itemprop="dateModified" datetime="2024-01-03T16:58:31+08:00">2024-01-03</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%B5%84%E6%BA%90%E5%A4%96%E9%93%BE/" itemprop="url" rel="index"><span itemprop="name">资源外链</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>注册云空间，存放资源，拥有自己的资源外链，再也不怕图裂！！！</p>
-</blockquote>
-<p>特意选择注册了<a target="_blank" rel="noopener" href="http://www.qiniu.com/">七牛</a>，因为有永久免费的存属空间。(我不是广告)</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2016/08/04/hexo-qiniu-space/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1011,16 +1048,16 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
